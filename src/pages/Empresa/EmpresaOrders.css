@@ -1,0 +1,452 @@
+.empresa-orders-page {
+    padding-top: 72px;
+    min-height: 100vh;
+    background-color: var(--color-gray-50);
+}
+
+.empresa-orders-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-8) var(--spacing-6);
+}
+
+.empresa-orders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-6);
+}
+
+.empresa-orders-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-1);
+}
+
+.empresa-orders-subtitle {
+    color: var(--color-gray-500);
+}
+
+.header-stats {
+    display: flex;
+    gap: var(--spacing-6);
+}
+
+.header-stat {
+    text-align: center;
+}
+
+.header-stat-value {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+.header-stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.empresa-orders-filters {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-6);
+    padding: var(--spacing-2);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-xl);
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-5);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-gray-600);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+    background-color: var(--color-gray-100);
+    color: var(--color-black);
+}
+
+.filter-btn.active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.filter-count {
+    padding: 2px 8px;
+    font-size: var(--font-size-xs);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+}
+
+.filter-btn:not(.active) .filter-count {
+    background-color: var(--color-gray-200);
+}
+
+.empresa-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.empresa-order-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-5);
+    transition: all var(--transition-normal);
+}
+
+.empresa-order-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.empresa-order-card.order-pending {
+    border-left: 4px solid var(--color-warning);
+}
+
+.empresa-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-4);
+}
+
+.empresa-order-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.empresa-order-avatar {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-gray-600);
+}
+
+.empresa-order-id {
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.empresa-order-client {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.order-status-badge {
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+.empresa-order-details {
+    display: flex;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-4);
+    padding-bottom: var(--spacing-4);
+    border-bottom: 1px solid var(--color-gray-100);
+}
+
+.order-detail {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+}
+
+.empresa-order-products {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
+}
+
+.mini-product {
+    position: relative;
+    width: 48px;
+    height: 48px;
+}
+
+.mini-product img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    background-color: var(--color-gray-100);
+}
+
+.mini-product span {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    padding: 2px 5px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+.mini-product-more {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-gray-600);
+}
+
+.empresa-order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-totals {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-4);
+}
+
+.order-items-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.order-total {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+.order-actions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.orders-empty {
+    text-align: center;
+    padding: var(--spacing-16);
+    background-color: var(--color-white);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-gray-200);
+    color: var(--color-gray-400);
+}
+
+.orders-empty svg {
+    margin-bottom: var(--spacing-4);
+}
+
+/* Modal */
+.empresa-order-modal {
+    max-width: 600px;
+}
+
+.modal-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-6);
+}
+
+.modal-header-section h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+.modal-client-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    background-color: var(--color-gray-50);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-6);
+}
+
+.client-avatar {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-300);
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    color: var(--color-gray-700);
+}
+
+.client-name {
+    display: block;
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.client-address {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.modal-delivery-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+}
+
+.delivery-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.delivery-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.delivery-value {
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.modal-products-list h3 {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-4);
+}
+
+.modal-product-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--color-gray-100);
+}
+
+.modal-product-item:last-child {
+    border-bottom: none;
+}
+
+.modal-product-item img {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    background-color: var(--color-gray-100);
+}
+
+.modal-product-info {
+    flex: 1;
+}
+
+.modal-product-name {
+    display: block;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.modal-product-qty {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-500);
+}
+
+.modal-product-total {
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.modal-total-section {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-4);
+    margin-top: var(--spacing-6);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.modal-actions-section {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-6);
+}
+
+.modal-actions-section .btn {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .empresa-orders-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-4);
+    }
+
+    .header-stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .empresa-orders-filters {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .empresa-order-details {
+        flex-direction: column;
+        gap: var(--spacing-2);
+    }
+
+    .empresa-order-footer {
+        flex-direction: column;
+        gap: var(--spacing-4);
+        align-items: flex-start;
+    }
+
+    .order-actions {
+        width: 100%;
+    }
+
+    .order-actions .btn {
+        flex: 1;
+    }
+
+    .modal-delivery-info {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions-section {
+        flex-direction: column;
+    }
+}
