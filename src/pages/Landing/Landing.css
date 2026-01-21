@@ -46,6 +46,7 @@
     color: var(--color-white);
     border-radius: var(--radius-full);
     margin-bottom: var(--spacing-6);
+    animation: slideInLeft 0.6s ease-out;
 }
 
 .hero-title {
@@ -55,6 +56,7 @@
     letter-spacing: -0.03em;
     color: var(--color-black);
     margin-bottom: var(--spacing-6);
+    animation: slideInLeft 0.8s ease-out 0.2s both;
 }
 
 .hero-title-accent {
@@ -71,17 +73,20 @@
     line-height: 1.7;
     margin-bottom: var(--spacing-8);
     max-width: 480px;
+    animation: slideInLeft 0.8s ease-out 0.4s both;
 }
 
 .hero-actions {
     display: flex;
     gap: var(--spacing-4);
     margin-bottom: var(--spacing-12);
+    animation: slideInLeft 0.8s ease-out 0.6s both;
 }
 
 .hero-stats {
     display: flex;
     gap: var(--spacing-10);
+    animation: slideInLeft 0.8s ease-out 0.8s both;
 }
 
 .hero-stat {
@@ -114,13 +119,15 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-3);
-    box-shadow: var(--shadow-lg);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-normal);
+    animation: slideInRight 0.8s ease-out;
 }
 
 .hero-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-gray-300);
 }
 
 .hero-card-icon {
@@ -132,6 +139,11 @@
     background-color: var(--color-black);
     color: var(--color-white);
     border-radius: var(--radius-lg);
+    transition: transform 0.3s ease;
+}
+
+.hero-card:hover .hero-card-icon {
+    transform: scale(1.1);
 }
 
 .hero-card span {
@@ -217,17 +229,32 @@
     border-radius: var(--radius-xl);
     transition: all var(--transition-normal);
     cursor: default;
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.feature-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.6s;
 }
 
 .feature-card:hover {
     border-color: var(--color-black);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
 }
 
 .feature-card:hover .feature-icon {
     background-color: var(--color-black);
     color: var(--color-white);
+    transform: scale(1.1) rotate(5deg);
 }
 
 .feature-icon {
