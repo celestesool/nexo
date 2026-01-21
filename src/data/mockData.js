@@ -152,7 +152,7 @@ export const productos = [
     id: 8,
     nombre: "Detergente Líquido 3L",
     categoria: "Limpieza",
-    imagen: "https://images.unsplash.com/photo-1585441695325-21557f27a9c8?w=300&h=300&fit=crop",
+    imagen: "https://images.unsplash.com/photo-1599599810694-84d8c6c2b5b9?w=300&h=300&fit=crop",
     precios: [
       { distribuidorId: 1, precio: 35.00, stock: 80, precioAnterior: null },
       { distribuidorId: 4, precio: 33.50, stock: 100, precioAnterior: 36.00 }

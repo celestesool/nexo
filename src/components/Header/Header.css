@@ -142,11 +142,22 @@
     display: none;
     width: 44px;
     height: 44px;
+    padding: 0;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-lg);
     color: var(--color-black);
+    background: none;
+    border: none;
+    cursor: pointer;
     transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.header-menu-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
 }
 
 .header-menu-btn:hover {
@@ -287,6 +298,11 @@
     .header-container {
         padding: 0 var(--spacing-4);
         height: 64px;
+        gap: var(--spacing-4);
+    }
+
+    .header-logo-text {
+        font-size: var(--font-size-lg);
     }
 
     .header-nav-desktop {
