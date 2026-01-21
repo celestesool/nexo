@@ -186,7 +186,7 @@
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 0;
+    top: 64px;
     right: 0;
     bottom: 0;
     width: 75vw;
@@ -198,6 +198,7 @@
     transition: transform var(--transition-normal);
     overflow-y: auto;
     box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
 }
 
 .mobile-menu.open {
@@ -206,28 +207,18 @@
 }
 
 .mobile-menu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-4) var(--spacing-5);
-    border-bottom: 1px solid var(--color-gray-200);
-    position: sticky;
-    top: 0;
-    background-color: var(--color-white);
-    z-index: 10;
+    display: none;
 }
 
 .mobile-menu-title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--color-black);
+    display: none;
 }
 
 .mobile-menu-content {
-    padding: var(--spacing-4) var(--spacing-4) var(--spacing-16) var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-3) var(--spacing-16) var(--spacing-3);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: 0;
 }
 
 .mobile-menu-link {
@@ -238,7 +229,7 @@
     font-size: var(--font-size-sm);
     font-weight: 500;
     color: var(--color-gray-700);
-    border-radius: var(--radius-lg);
+    border-radius: 0;
     transition: all var(--transition-fast);
     background: none;
     border: none;
@@ -246,15 +237,11 @@
     width: 100%;
     cursor: pointer;
     min-height: 44px;
-}
-
-.mobile-menu-link svg {
-    color: var(--color-gray-500);
-    flex-shrink: 0;
+    border-bottom: 1px solid var(--color-gray-100);
 }
 
 .mobile-menu-link:hover {
-    background-color: var(--color-gray-100);
+    background-color: var(--color-gray-50);
     color: var(--color-black);
 }
 
@@ -273,7 +260,7 @@
 .mobile-menu-divider {
     height: 1px;
     background-color: var(--color-gray-200);
-    margin: var(--spacing-3) 0;
+    margin: 0;
 }
 
 .mobile-menu-badge {
@@ -290,6 +277,7 @@
     margin: var(--spacing-4) var(--spacing-3);
     width: calc(100% - var(--spacing-6));
     justify-content: center;
+    border-radius: var(--radius-lg);
 }
 
 /* Responsive */

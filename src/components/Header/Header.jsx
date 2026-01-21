@@ -105,10 +105,6 @@ export default function Header() {
 
             {/* Mobile Menu */}
             <nav className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-                <div className="mobile-menu-header">
-                    <span className="mobile-menu-title">Menu</span>
-                </div>
-
                 <div className="mobile-menu-content">
                     {!isAuthenticated() ? (
                         <>
