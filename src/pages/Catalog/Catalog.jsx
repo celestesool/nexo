@@ -1,6 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { productos, categorias, distribuidores } from '../../data/mockData';
 import { useCart } from '../../context/CartContext';
+import { toggleBodyScroll } from '../../utils/modalUtils';
 import './Catalog.css';
 
 export default function Catalog() {
@@ -10,6 +11,11 @@ export default function Catalog() {
     const [viewMode, setViewMode] = useState('category'); // 'category', 'grid', 'list'
     const [notification, setNotification] = useState(null);
     const { addItem } = useCart();
+
+    useEffect(() => {
+        toggleBodyScroll(!!selectedProduct);
+        return () => toggleBodyScroll(false);
+    }, [selectedProduct]);
 
     const getDistribuidor = (id) => distribuidores.find(d => d.id === id);
 
