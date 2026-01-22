@@ -363,9 +363,16 @@ function ProductDetailModal({ product, onClose, onAddToCart, getDistribuidor }) 
                                         >
                                             {isBest && <span className="best-badge">Mejor Precio</span>}
                                             <div className="price-option-header">
-                                                <img src={dist?.logo} alt={dist?.nombre} />
+                                                <div className="distributor-avatar-wrapper">
+                                                    <img src={dist?.logo} alt={dist?.nombre} />
+                                                    <div className="distributor-tooltip">
+                                                        <strong>{dist?.nombre}</strong>
+                                                        {dist?.direccion && <span>{dist.direccion}</span>}
+                                                        {dist?.telefono && <span>Tel: {dist.telefono}</span>}
+                                                    </div>
+                                                </div>
                                                 <div>
-                                                    <span className="price-option-vendor">{dist?.nombre}</span>
+                                                    <span className="price-option-vendor" title={dist?.nombre}>{dist?.nombre}</span>
                                                     <span className="price-option-stock">{precio.stock} en stock</span>
                                                 </div>
                                             </div>

@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
+import { FavoritesProvider } from './context/FavoritesContext';
+import { NotificationsProvider } from './context/NotificationsContext';
 
 // Components
 import Header from './components/Header/Header';
@@ -21,6 +23,11 @@ import Analytics from './pages/Analytics/Analytics';
 import EmpresaProducts from './pages/Empresa/EmpresaProducts';
 import EmpresaOrders from './pages/Empresa/EmpresaOrders';
 import EmpresaOffers from './pages/Empresa/EmpresaOffers';
+import Profile from './pages/Profile/Profile';
+import Favorites from './pages/Favorites/Favorites';
+import NotFound from './pages/NotFound/NotFound';
+import Terms from './pages/Legal/Terms';
+import Privacy from './pages/Legal/Privacy';
 
 // Import CSS
 import './pages/Orders/Orders.css';
@@ -30,6 +37,10 @@ import './pages/Analytics/Analytics.css';
 import './pages/Empresa/EmpresaProducts.css';
 import './pages/Empresa/EmpresaOrders.css';
 import './pages/Empresa/EmpresaOffers.css';
+import './pages/Profile/Profile.css';
+import './pages/Favorites/Favorites.css';
+import './pages/NotFound/NotFound.css';
+import './pages/Legal/Legal.css';
 
 // Protected Route Component
 function ProtectedRoute({ children, requiredType }) {
@@ -119,6 +130,29 @@ function AppRoutes() {
           <Layout showFooter={false}>
             <Cart />
           </Layout>
+        }
+      />
+
+      {/* Authenticated Routes */}
+      <Route
+        path="/perfil"
+        element={
+          <ProtectedRoute>
+            <Layout showFooter={false}>
+              <Profile />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/favoritos"
+        element={
+          <ProtectedRoute>
+            <Layout showFooter={false}>
+              <Favorites />
+            </Layout>
+          </ProtectedRoute>
         }
       />
 
@@ -212,15 +246,31 @@ function AppRoutes() {
         }
       />
 
-      {/* Fallback */}
+      {/* Legal Pages */}
+      <Route
+        path="/terminos"
+        element={
+          <Layout>
+            <Terms />
+          </Layout>
+        }
+      />
+
+      <Route
+        path="/privacidad"
+        element={
+          <Layout>
+            <Privacy />
+          </Layout>
+        }
+      />
+
+      {/* 404 - Not Found */}
       <Route
         path="*"
         element={
           <Layout>
-            <div className="coming-soon-page">
-              <h1>404</h1>
-              <p>Pagina no encontrada</p>
-            </div>
+            <NotFound />
           </Layout>
         }
       />
@@ -233,7 +283,11 @@ function App() {
     <Router>
       <AuthProvider>
         <CartProvider>
-          <AppRoutes />
+          <FavoritesProvider>
+            <NotificationsProvider>
+              <AppRoutes />
+            </NotificationsProvider>
+          </FavoritesProvider>
         </CartProvider>
       </AuthProvider>
     </Router>

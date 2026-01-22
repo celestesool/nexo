@@ -40,7 +40,6 @@ export default function Cart() {
 
         setIsCheckingOut(true);
 
-        // Simular proceso de checkout
         await new Promise(resolve => setTimeout(resolve, 2000));
 
         setOrderConfirmed(true);
