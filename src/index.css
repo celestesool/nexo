@@ -534,11 +534,14 @@ textarea {
 .card {
   background-color: var(--color-white);
   border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   padding: var(--spacing-6);
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card::before {
@@ -553,14 +556,27 @@ textarea {
   transition: opacity var(--transition-normal);
 }
 
-.card:hover::before {
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-gray-800));
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.card:hover::before,
+.card:hover::after {
   opacity: 1;
 }
 
 .card:hover {
-  border-color: var(--color-gray-300);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  transform: translateY(-6px);
+  border-color: var(--color-gray-400);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
 }
 
 .card-dark {
@@ -571,7 +587,7 @@ textarea {
 
 .card-dark:hover {
   border-color: var(--color-gray-600);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Badges */
@@ -960,6 +976,10 @@ textarea {
    MODAL GLOBAL STYLES
    ============================================ */
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -971,22 +991,24 @@ textarea {
   z-index: 1001;
   padding: var(--spacing-4);
   overflow-y: auto;
+  animation: fadeIn 0.2s ease-out;
 }
 
 .modal {
   width: 100%;
   max-width: 600px;
-  max-height: calc(100vh - 2rem);
+  max-height: 90vh;
   background-color: var(--color-white);
   border-radius: var(--radius-2xl);
   overflow: hidden;
   position: relative;
-  box-shadow: var(--shadow-2xl);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-content {
   padding: var(--spacing-6);
-  max-height: calc(100vh - 4rem);
+  max-height: calc(90vh - 80px);
   overflow-y: auto;
 }
 
@@ -1004,10 +1026,15 @@ textarea {
   color: var(--color-gray-600);
   transition: all var(--transition-fast);
   z-index: 10;
+  cursor: pointer;
+  border: none;
 }
 
 .modal-close:hover {
   background-color: var(--color-black);
+  color: var(--color-white);
+  transform: rotate(90deg);
+}
   color: var(--color-white);
 }
 
@@ -1050,28 +1077,34 @@ textarea {
 
 /* Modal Responsive */
 @media (max-width: 768px) {
+  .modal-overlay {
+    padding: var(--spacing-3);
+    align-items: flex-end;
+  }
+
   .modal {
-    max-width: 90vw;
-    max-height: 80vh;
-    border-radius: var(--radius-xl);
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    margin-top: auto;
   }
 
   .modal-content {
     padding: var(--spacing-4);
-    max-height: calc(80vh - 60px);
+    max-height: calc(85vh - 70px);
   }
 
   .modal-close {
     width: 40px;
     height: 40px;
-    top: var(--spacing-3);
-    right: var(--spacing-3);
+    top: var(--spacing-2);
+    right: var(--spacing-2);
   }
 
   .modal-title {
     font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-4);
-    padding-right: 50px;
+    margin-bottom: var(--spacing-3);
+    padding-right: 45px;
   }
 
   .modal .form-row {
@@ -1089,16 +1122,6 @@ textarea {
   .modal-actions .btn {
     width: 100%;
     padding: var(--spacing-3) var(--spacing-4);
-  }
-
-  .modal-overlay {
-    padding: var(--spacing-2);
-    align-items: flex-end;
-  }
-
-  .modal {
-    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
-    margin-top: auto;
   }
 }
 
@@ -1123,6 +1146,18 @@ textarea {
 
   .modal-actions .btn {
     font-size: var(--font-size-sm);
+    padding: var(--spacing-2) var(--spacing-3);
+  }
+
+  /* Cards Mobile */
+  .card {
+    padding: var(--spacing-4);
+    border-radius: var(--radius-xl);
+  }
+
+  .card img {
+    width: 40px;
+    margin-right: var(--spacing-2);
   }
 }
 

@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { pedidosEjemplo, productos } from '../../data/mockData';
+import { toggleBodyScroll } from '../../utils/modalUtils';
 import './EmpresaOrders.css';
 
 export default function EmpresaOrders() {
     const [filter, setFilter] = useState('all');
     const [selectedOrder, setSelectedOrder] = useState(null);
+
+    useEffect(() => {
+        toggleBodyScroll(!!selectedOrder);
+        return () => toggleBodyScroll(false);
+    }, [selectedOrder]);
 
     const getProducto = (id) => productos.find(p => p.id === id);
 

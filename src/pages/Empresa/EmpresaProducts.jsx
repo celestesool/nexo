@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { productos, categorias } from '../../data/mockData';
+import { toggleBodyScroll } from '../../utils/modalUtils';
 import './EmpresaProducts.css';
 
 export default function EmpresaProducts() {
@@ -7,6 +8,11 @@ export default function EmpresaProducts() {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [editingProduct, setEditingProduct] = useState(null);
     const [showAddModal, setShowAddModal] = useState(false);
+
+    useEffect(() => {
+        toggleBodyScroll(showAddModal);
+        return () => toggleBodyScroll(false);
+    }, [showAddModal]);
 
     // Simulamos que estos productos pertenecen a la empresa actual
     const empresaProducts = productos.slice(0, 8);

@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { productos, ofertas as ofertasData } from '../../data/mockData';
+import { toggleBodyScroll } from '../../utils/modalUtils';
 import './EmpresaOffers.css';
 
 export default function EmpresaOffers() {
     const [showAddModal, setShowAddModal] = useState(false);
     const [editingOffer, setEditingOffer] = useState(null);
+
+    useEffect(() => {
+        toggleBodyScroll(showAddModal);
+        return () => toggleBodyScroll(false);
+    }, [showAddModal]);
 
     const getProducto = (id) => productos.find(p => p.id === id);
 

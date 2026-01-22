@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useNotifications } from '../../context/NotificationsContext';
+import { toggleBodyScroll } from '../../utils/modalUtils';
 import './Profile.css';
 
 export default function Profile() {
@@ -22,6 +23,11 @@ export default function Profile() {
         confirmPassword: ''
     });
     const [showPasswordModal, setShowPasswordModal] = useState(false);
+
+    useEffect(() => {
+        toggleBodyScroll(showPasswordModal);
+        return () => toggleBodyScroll(false);
+    }, [showPasswordModal]);
 
     const handleChange = (e) => {
         setFormData({

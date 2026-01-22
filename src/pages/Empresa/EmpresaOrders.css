@@ -347,7 +347,7 @@
 .modal-product-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-4);
+    gap: var(--spacing-3);
     padding: var(--spacing-3) 0;
     border-bottom: 1px solid var(--color-gray-100);
 }
@@ -357,8 +357,9 @@
 }
 
 .modal-product-item img {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
     border-radius: var(--radius-lg);
     object-fit: cover;
     background-color: var(--color-gray-100);
@@ -366,12 +367,14 @@
 
 .modal-product-info {
     flex: 1;
+    min-width: 0;
 }
 
 .modal-product-name {
     display: block;
     font-weight: 500;
     color: var(--color-black);
+    word-break: break-word;
 }
 
 .modal-product-qty {
@@ -382,6 +385,7 @@
 .modal-product-total {
     font-weight: 600;
     color: var(--color-black);
+    white-space: nowrap;
 }
 
 .modal-total-section {

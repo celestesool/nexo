@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { productos, categorias } from '../../data/mockData';
+import { toggleBodyScroll } from '../../utils/modalUtils';
 import './Inventory.css';
 
 export default function Inventory() {
@@ -7,6 +8,11 @@ export default function Inventory() {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [editingItem, setEditingItem] = useState(null);
     const [showAddModal, setShowAddModal] = useState(false);
+
+    useEffect(() => {
+        toggleBodyScroll(showAddModal);
+        return () => toggleBodyScroll(false);
+    }, [showAddModal]);
 
     // Simulamos inventario de la pulperia basado en productos
     const [inventory, setInventory] = useState([
